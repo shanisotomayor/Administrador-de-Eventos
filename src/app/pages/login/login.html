@@ -1,1 +1,5 @@
-<p>login works!</p>
+<h2>Iniciar sesión</h2>
+<input [(ngModel)]="email" placeholder="Correo" />
+<input [(ngModel)]="password" placeholder="Contraseña" type="password" />
+<button (click)="ingresar()" [disabled]="loading">Entrar</button>
+<p><a routerLink="/register">Crear cuenta</a></p>
