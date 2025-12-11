@@ -1,0 +1,14 @@
+<div *ngIf="events$ | async as events">
+  <div *ngFor="let ev of events" class="event-card">
+    <h3>{{ ev.title }}</h3>
+    <p>{{ ev.date }} - {{ ev.time }}</p>
+    <p>{{ ev.category }}</p>
+    <p>{{ ev.description }}</p>
+
+    <button (click)="toggleStatus(ev)">
+      {{ ev.status === 'programado' ? 'Marcar como completado' : 'Marcar como programado' }}
+    </button>
+
+    <button (click)="delete(ev.id)">Eliminar</button>
+  </div>
+</div>
