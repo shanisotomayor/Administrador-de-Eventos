@@ -3,8 +3,9 @@ export interface Event {
   title: string;
   date: string;
   time: string;
-  category: string;
   description: string;
   status: 'programado' | 'completado';
+
+  categoryId: string;   
   userId?: string;
 }

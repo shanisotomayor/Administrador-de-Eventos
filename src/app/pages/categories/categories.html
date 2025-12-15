@@ -1,0 +1,13 @@
+<h2>Categorías</h2>
+
+<form (ngSubmit)="save()">
+  <input placeholder="Nombre" [(ngModel)]="name" name="name" required>
+  <input type="color" [(ngModel)]="color" name="color">
+  <button type="submit">Agregar</button>
+</form>
+
+<ul>
+  <li *ngFor="let c of categories">
+    <span [style.color]="c.color">⬤</span> {{ c.name }}
+  </li>
+</ul>

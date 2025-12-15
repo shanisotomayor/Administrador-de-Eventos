@@ -1,5 +1,21 @@
-<h2>Iniciar sesión</h2>
-<input [(ngModel)]="email" placeholder="Correo" />
-<input [(ngModel)]="password" placeholder="Contraseña" type="password" />
-<button (click)="ingresar()" [disabled]="loading">Entrar</button>
-<p><a routerLink="/register">Crear cuenta</a></p>
+<div class="auth-card">
+  <h2>Iniciar sesión</h2>
+
+  <input
+    type="email"
+    placeholder="Correo electrónico"
+    [(ngModel)]="email"
+  />
+
+  <input
+    type="password"
+    placeholder="Contraseña"
+    [(ngModel)]="password"
+  />
+
+  <button (click)="ingresar()" [disabled]="loading">
+    {{ loading ? 'Ingresando...' : 'Entrar' }}
+  </button>
+
+  <a routerLink="/register">Crear cuenta</a>
+</div>

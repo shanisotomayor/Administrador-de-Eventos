@@ -1,15 +1,23 @@
-<div class="grid">
-  <div class="event-card" *ngFor="let ev of events$ | async">
-    <h3>{{ ev.title }}</h3>
+<h2>Mis eventos</h2>
 
-    <p><strong>Fecha:</strong> {{ ev.date }} {{ ev.time }}</p>
-    <p><strong>Categoría:</strong> {{ ev.category }}</p>
-    <p><strong>Estado:</strong> {{ ev.status }}</p>
+<div *ngIf="events$ | async as events; else empty">
 
-    <div class="actions">
-      <button (click)="toggleStatus(ev)">Estado</button>
-      <button (click)="edit(ev)">Editar</button>
-      <button class="danger" (click)="delete(ev.id)">Eliminar</button>
-    </div>
+  <div *ngFor="let ev of events" class="event-card">
+    <h3>{{ ev.title | uppercase }}</h3>
+    <p>{{ ev.date | date }} - {{ ev.time }}</p>
+    <p>Categoría: {{ ev.categoryId }}</p>
+    <p>{{ ev.description }}</p>
+
+    <button (click)="toggleStatus(ev)">
+      {{ ev.status === 'programado' ? 'Completar' : 'Programar' }}
+    </button>
+
+    <button (click)="edit(ev)">Editar</button>
+    <button (click)="delete(ev.id)">Eliminar</button>
   </div>
+
 </div>
+
+<ng-template #empty>
+  <p>No hay eventos registrados</p>
+</ng-template>
