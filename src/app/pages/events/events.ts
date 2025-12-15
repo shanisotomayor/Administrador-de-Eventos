@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { EventService } from '../../services/event.service';
 import { Event } from '../../models/event.model';
@@ -12,6 +13,9 @@ import { Event } from '../../models/event.model';
   styleUrls: ['./events.scss']
 })
 export class EventsComponent implements OnInit {
+edit(_t9: Event) {
+throw new Error('Method not implemented.');
+}
 
   events$!: Observable<Event[]>;
 
@@ -28,6 +32,9 @@ export class EventsComponent implements OnInit {
 
   delete(id: string | undefined) {
     if (!id) return;
+    const ok = confirm('¿Seguro que deseas eliminar este evento?');
+    if (!ok) return;
+    
     this.es.deleteEvent(id);
   }
 }

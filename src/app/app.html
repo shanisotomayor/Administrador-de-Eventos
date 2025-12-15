@@ -1,1 +1,13 @@
-<router-outlet></router-outlet>
+<div class="layout">
+  <header class="header">
+    <h1>Administrador de Eventos</h1>
+    <nav>
+      <a routerLink="/events">Eventos</a>
+      <a routerLink="/create">Crear evento</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

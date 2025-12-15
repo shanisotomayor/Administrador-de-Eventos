@@ -41,6 +41,7 @@ export class CreateEventComponent {
       userId: user.uid
     });
 
+    alert('Evento guardado correctamente');
     this.router.navigate(['/events']);
   }
 }

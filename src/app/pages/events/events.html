@@ -1,17 +1,15 @@
-<h1>EVENTOS</h1>
-<p>Si ves esto, el componente SÍ carga</p>
-
-<div *ngIf="events$ | async as events">
-  <div *ngFor="let ev of events" class="event-card">
+<div class="grid">
+  <div class="event-card" *ngFor="let ev of events$ | async">
     <h3>{{ ev.title }}</h3>
-    <p>{{ ev.date }} - {{ ev.time }}</p>
-    <p>{{ ev.category }}</p>
-    <p>{{ ev.description }}</p>
 
-    <button (click)="toggleStatus(ev)">
-      {{ ev.status === 'programado' ? 'Marcar como completado' : 'Marcar como programado' }}
-    </button>
+    <p><strong>Fecha:</strong> {{ ev.date }} {{ ev.time }}</p>
+    <p><strong>Categoría:</strong> {{ ev.category }}</p>
+    <p><strong>Estado:</strong> {{ ev.status }}</p>
 
-    <button (click)="delete(ev.id)">Eliminar</button>
+    <div class="actions">
+      <button (click)="toggleStatus(ev)">Estado</button>
+      <button (click)="edit(ev)">Editar</button>
+      <button class="danger" (click)="delete(ev.id)">Eliminar</button>
+    </div>
   </div>
 </div>
