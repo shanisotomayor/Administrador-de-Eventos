@@ -1,15 +1,19 @@
 <h2>Crear evento</h2>
 
 <form (ngSubmit)="save()">
-  <input name="title" [(ngModel)]="evento.title" required placeholder="Título" />
+  <input name="title" [(ngModel)]="evento.title" placeholder="Título" required />
 
   <input type="date" name="date" [(ngModel)]="evento.date" required />
 
   <input type="time" name="time" [(ngModel)]="evento.time" required />
 
-  <input name="category" [(ngModel)]="evento.category" required placeholder="Categoría" />
+  <input name="category" [(ngModel)]="evento.category" placeholder="Categoría" required />
 
-  <textarea name="description" [(ngModel)]="evento.description" placeholder="Descripción"></textarea>
+  <textarea
+    name="description"
+    [(ngModel)]="evento.description"
+    placeholder="Descripción">
+  </textarea>
 
   <select name="status" [(ngModel)]="evento.status">
     <option value="programado">Programado</option>
@@ -18,4 +22,3 @@
 
   <button type="submit">Guardar</button>
 </form>
-

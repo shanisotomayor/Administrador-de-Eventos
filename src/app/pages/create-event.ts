@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { EventService } from '../services/event.service';
+import { EventService } from '../../app/services/event.service';
 import { Auth } from '@angular/fire/auth';
-import { CommonModule } from '@angular/common';
-import { Event } from '../models/event.model';
+import { Event } from '../../app/models/event.model';
 
 @Component({
   selector: 'app-create-event',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './create-event.html'
 })
 export class CreateEventComponent {
@@ -23,7 +23,11 @@ export class CreateEventComponent {
     status: 'programado'
   };
 
-  constructor(private es: EventService, private auth: Auth, private router: Router) {}
+  constructor(
+    private es: EventService,
+    private auth: Auth,
+    private router: Router
+  ) {}
 
   async save() {
     const user = this.auth.currentUser;

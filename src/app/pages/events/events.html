@@ -1,3 +1,6 @@
+<h1>EVENTOS</h1>
+<p>Si ves esto, el componente SÍ carga</p>
+
 <div *ngIf="events$ | async as events">
   <div *ngFor="let ev of events" class="event-card">
     <h3>{{ ev.title }}</h3>

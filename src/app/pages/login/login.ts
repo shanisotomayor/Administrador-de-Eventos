@@ -20,7 +20,7 @@ export class Login {
     this.loading = true;
     try {
       await this.auth.login(this.email, this.password);
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/events']);
     } catch (e:any) {
       alert(e.message || 'Error al iniciar sesión');
     } finally {
